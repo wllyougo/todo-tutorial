@@ -7,6 +7,23 @@
 - 강의 본문: https://docs.claude-hunt.com
 - 수강생 결과물 공유: https://claude-hunt.com
 
+## 프로젝트 소개
+
+브라우저에서 동작하는 Todo 앱입니다. 데이터는 서버 없이 `localStorage` 에 저장되며, 새로고침해도 유지됩니다.
+
+주요 기능:
+
+- 할 일 추가 / 완료 / 삭제
+- 우선순위(높음·보통·낮음), 마감일, 카테고리(업무·개인·쇼핑) 지정
+- 상태 필터(전체·진행중·완료), 카테고리 필터, 검색
+- 정렬(생성일순·이름순·마감일순)
+- 다크 모드 (`d` 키로 전환)
+
+## 요구 사항
+
+- [bun](https://bun.sh) 1.3.6 이상
+- Node.js (Next.js 16 지원 버전)
+
 ## 기술 스택
 
 - Next.js 16 (App Router, Turbopack)
@@ -33,7 +50,18 @@ bun run build      # 프로덕션 빌드
 bun run start      # 빌드 결과 실행
 bun run lint       # ESLint
 bun run typecheck  # tsc --noEmit
+bun run test       # Vitest 단위 테스트 (1회 실행)
+bun run test:watch # Vitest 감시 모드
 bun run format     # Prettier 포맷팅
+```
+
+## 프로젝트 구조
+
+```text
+app/         # Next.js App Router (layout, page, 전역 스타일)
+components/  # Todo UI 컴포넌트 (+ ui/ : shadcn/ui)
+hooks/       # use-todos: 상태 관리 및 localStorage 연동
+lib/         # 타입 정의와 유틸 함수
 ```
 
 ## 챕터별 시작 브랜치
